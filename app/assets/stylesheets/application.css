@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+nav.navbar-washos .navbar-nav a {
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.navbar {
+    min-height: 50px;
+    margin-bottom: 20px;
+}
+
+html { background: transparent }
+
+body {background-color: #F2F2F2 !important;}
+
+.regular-box {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.title-box {
+    border-bottom: 1px solid #f2f2f2;
+    margin-bottom: 20px;
+}

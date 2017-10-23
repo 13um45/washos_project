@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="offset-md-3 col-md-6">
+    <div class="card border-secondary">
+      <div class="card-header text-center">
+        Appointment Summary
+      </div>
+      <div class="card-body">
+        <div class="row font-weight-normal">
+          <div class="col-md-6 text-left">
+            Customer Name
+          </div>
+          <div class="col-md-6 text-right">
+            <%= @appointment.customer_name %>
+          </div>
+        </div>
+        <hr/>
+        <div class="row font-weight-normal">
+          <div class="col-md-6 text-left">
+            Appointment Time
+          </div>
+          <div class="col-md-6 text-right">
+            <%= formatted_time(@appointment.appointment_time) %>
+          </div>
+        </div>
+        <hr/>
+        <div class="row">
+          <div class="col-md-6">
+            <span class="font-weight-normal">Package -</span>
+            <span class="font-weight-light"> <%= "#{@appointment.service.package.name}" %></span>
+          </div>
+          <div class="col-md-6 text-right font-weight-normal">
+            <%= "#{formatted_value(@appointment.service.package.value)}" %>
+          </div>
+        </div>
+        <hr/>
+        <% if @appointment.service.options.present? %>
+          <% @appointment.service.options.each do |option| %>
+            <div class="row">
+              <div class="col-md-6">
+                <span class="font-weight-normal">Option - </span>
+                <span class="font-weight-light"><%= "#{option.name}" %></span>
+              </div>
+              <div class="col-md-6 text-right font-weight-normal">
+                <%= "#{formatted_value(option.value)}" %>
+              </div>
+            </div>
+          <% end %>
+          <hr/>
+        <% end %>
+        <div class="row font-weight-bold">
+          <div class="col-md-6 text-left">
+            Total Price:
+          </div>
+          <div class="col-md-6 text-right">
+            <%= formatted_value(@appointment.total_value) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

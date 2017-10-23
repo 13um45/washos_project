@@ -1,0 +1,27 @@
+<div class="col-md-12 text-center">
+  <h1>Appointments</h1>
+</div>
+<div class="row">
+  <div class="offset-md-2 col-md-8">
+    <table class="table table-bordered table-hover table-light">
+      <thead>
+      <tr>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Package</th>
+        <th scope="col">Appointment Time</th>
+        <th scope="col">Price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @appointments.each do |appointment| %>
+        <tr class="appointment_row" data-link="<%= appointment_url(appointment) %>">
+          <td><%= appointment.customer_name %></td>
+          <td><%= appointment.service.package.name %></td>
+          <td><%= formatted_time(appointment.appointment_time)%></td>
+          <td><%= formatted_value(appointment.total_value)%></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
