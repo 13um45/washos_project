@@ -40,16 +40,12 @@ class AppointmentsController < ApplicationController
             :value,
             :appointment_id,
             :package_id,
-            :created_at,
-            :updated_at,
             :_destroy,
             service_options_attributes:
               [
                 :id,
                 :service_id,
                 :option_id,
-                :created_at,
-                :updated_at,
                 :_destroy
               ]
           ]
