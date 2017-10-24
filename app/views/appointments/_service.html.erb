@@ -1,0 +1,27 @@
+<div class="nested_fields">
+  <div class="form-group">
+    <%= f.hidden_field :_destroy, class: 'remove' %>
+    <%= f.label('Select your package') %>
+    <a class="remove_record" href="#"><i class="fa fa-trash-o fa-2" aria-hidden="true"></i></a>
+    <%= f.select(:package_id, options_from_collection_for_select(@packages, 'id', lambda { |package| "#{package.name} - #{formatted_value(package.value)}" }), {}, {class: 'form-control' }) %>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        <a data-toggle="collapse" href="#<%="#{f.object_id}collapse_options" %>" aria-expanded="false" aria-controls="<%="#{f.object_id}collapse_options" %>" id="add_options">
+          + Add options
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="collapse" id="<%="#{f.object_id}collapse_options" %>">
+    <% @options.each_with_index do |option, index| %>
+      <div class="form-check">
+        <label class="form-check-label">
+          <%= check_box_tag("#{f.object_name}[service_options_attributes][#{index}][option_id]", option.id, false, class: 'form-check-input') %>
+          <%= "#{option.name} - #{formatted_value(option.value)}" %>
+        </label>
+      </div>
+    <% end %>
+  </div>
+</div>

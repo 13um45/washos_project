@@ -7,7 +7,6 @@
       <thead>
       <tr>
         <th scope="col">Customer Name</th>
-        <th scope="col">Package</th>
         <th scope="col">Appointment Time</th>
         <th scope="col">Price</th>
       </tr>
@@ -16,7 +15,6 @@
       <% @appointments.each do |appointment| %>
         <tr class="appointment_row" data-link="<%= appointment_url(appointment) %>">
           <td><%= appointment.customer_name %></td>
-          <td><%= appointment.service.package.name %></td>
           <td><%= formatted_time(appointment.appointment_time)%></td>
           <td><%= formatted_value(appointment.total_value)%></td>
         </tr>
