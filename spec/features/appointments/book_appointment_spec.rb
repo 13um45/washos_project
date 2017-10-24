@@ -17,42 +17,42 @@ feature "booking appointment" do
     end
 
     scenario "booking with customer name, date and lavish package" do
-      select('Lavish - $29', from: 'appointment[package]', match: :first).select_option
+      select('Lavish - $29', from: 'appointment[services_attributes][0][package_id]', match: :first).select_option
 
       click_button 'Book Appointment'
       expect(page).to have_content 'Total Price: $29'
     end
 
-    scenario "booking with customer name. date and reveal package" do
-      select('Reveal - $79', from: 'appointment[package]', match: :first).select_option
+    scenario "booking with customer name, date and reveal package" do
+      select('Reveal - $79', from: 'appointment[services_attributes][0][package_id]', match: :first).select_option
 
       click_button 'Book Appointment'
       expect(page).to have_content 'Total Price: $79'
     end
 
-    scenario "booking with customer name. date and outright package" do
-      select('Outright - $149', from: 'appointment[package]', match: :first).select_option
+    scenario "booking with customer name, date and outright package" do
+      select('Outright - $149', from: 'appointment[services_attributes][0][package_id]', match: :first).select_option
 
       click_button 'Book Appointment'
       expect(page).to have_content 'Total Price: $149'
     end
 
     scenario "booking with customer name, date, lavish package and wax option" do
-      select('Lavish - $29', from: 'appointment[package]', match: :first).select_option
+      select('Lavish - $29', from: 'appointment[services_attributes][0][package_id]', match: :first).select_option
       click_link 'add_options'
-      check 'appointment[options][0]'
+      check 'appointment[services_attributes][0][service_options_attributes][0][option_id]'
       click_button 'Book Appointment'
       expect(page).to have_content 'Total Price: $69'
     end
 
     scenario "booking with customer name, date, outright package and all options" do
-      select('Outright - $149', from: 'appointment[package]', match: :first).select_option
+      select('Outright - $149', from: 'appointment[services_attributes][0][package_id]', match: :first).select_option
       click_link 'add_options'
-      check 'appointment[options][0]'
-      check 'appointment[options][1]'
-      check 'appointment[options][2]'
-      check 'appointment[options][3]'
-      check 'appointment[options][4]'
+      check 'appointment[services_attributes][0][service_options_attributes][0][option_id]'
+      check 'appointment[services_attributes][0][service_options_attributes][1][option_id]'
+      check 'appointment[services_attributes][0][service_options_attributes][2][option_id]'
+      check 'appointment[services_attributes][0][service_options_attributes][3][option_id]'
+      check 'appointment[services_attributes][0][service_options_attributes][4][option_id]'
       click_button 'Book Appointment'
       expect(page).to have_content 'Total Price: $354'
     end

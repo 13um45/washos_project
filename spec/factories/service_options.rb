@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :service_option do
-    service_id 1
-    option_id 1
+    service_id { }
+    option_id { }
   end
 end
