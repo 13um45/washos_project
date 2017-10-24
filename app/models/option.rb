@@ -1,3 +1,4 @@
 class Option < ApplicationRecord
-  has_and_belongs_to_many :services
+  has_many :service_options
+  has_many :services, through: :service_options
 end
