@@ -23,4 +23,8 @@ module ApplicationHelper
       'Service'
     end
   end
+
+  def return_id(f)
+    f.object_name.delete('^0-9')
+  end
 end
