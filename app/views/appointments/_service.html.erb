@@ -18,7 +18,7 @@
     <% @options.each_with_index do |option, index| %>
       <div class="form-check">
         <label class="form-check-label">
-          <%= check_box_tag("#{f.object_name}[service_options_attributes][#{index}][option_id]", option.id, false, class: 'form-check-input') %>
+          <%= check_box_tag("#{f.object_name}[option_ids][]", option.id, false, class: 'form-check-input') %>
           <%= "#{option.name} - #{formatted_value(option.value)}" %>
         </label>
       </div>

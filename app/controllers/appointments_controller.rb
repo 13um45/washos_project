@@ -41,13 +41,7 @@ class AppointmentsController < ApplicationController
             :appointment_id,
             :package_id,
             :_destroy,
-            service_options_attributes:
-              [
-                :id,
-                :service_id,
-                :option_id,
-                :_destroy
-              ]
+            option_ids: []
           ]
       )
   end

@@ -40,7 +40,7 @@ feature "booking appointment" do
     scenario "booking with customer name, date, lavish package and wax option" do
       select('Lavish - $29', from: 'appointment[services_attributes][0][package_id]', match: :first).select_option
       click_link 'add_options'
-      check 'appointment[services_attributes][0][service_options_attributes][0][option_id]'
+      check 'Wax - $40', match: :first
       click_button 'Book Appointment'
       expect(page).to have_content 'Total Price: $69'
     end
@@ -48,11 +48,11 @@ feature "booking appointment" do
     scenario "booking with customer name, date, outright package and all options" do
       select('Outright - $149', from: 'appointment[services_attributes][0][package_id]', match: :first).select_option
       click_link 'add_options'
-      check 'appointment[services_attributes][0][service_options_attributes][0][option_id]'
-      check 'appointment[services_attributes][0][service_options_attributes][1][option_id]'
-      check 'appointment[services_attributes][0][service_options_attributes][2][option_id]'
-      check 'appointment[services_attributes][0][service_options_attributes][3][option_id]'
-      check 'appointment[services_attributes][0][service_options_attributes][4][option_id]'
+      check 'Wax - $40', match: :first
+      check 'Leather conditioning - $30', match: :first
+      check 'Pet Hair removal - $20', match: :first
+      check 'Dress Plastic - $15', match: :first
+      check 'Paint Buffing - $100', match: :first
       click_button 'Book Appointment'
       expect(page).to have_content 'Total Price: $354'
     end
