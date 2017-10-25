@@ -39,7 +39,6 @@
               <%= "#{formatted_value(service.package.value)}" %>
             </div>
           </div>
-          <hr/>
           <% if service.options.present? %>
             <% service.options.each do |option| %>
               <div class="row">
@@ -52,8 +51,8 @@
                 </div>
               </div>
             <% end %>
-            <hr/>
           <% end %>
+          <hr/>
         <% end %>
         <div class="row font-weight-bold">
           <div class="col-md-6 text-left">
